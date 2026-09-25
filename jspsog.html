@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>JSPS Original</title>
+</head>
+<body>
+<h1>JS Planet Smash Original</h1>
+<div class="planetchooser">
+<p>Pick a Planet</p>
+<button onclick="selectPlanet('maps/earthmap1k.jpg')">Earth</button>
+<button onclick="selectPlanet('maps/moonmap1k.jpg')">Moon</button>
+<button onclick="selectPlanet('maps/marsmap1k.jpg')">Mars</button>
+</div>
+<div class="weaponchooser">
+<p>Pick A Weapon</p>
+<button onclick="damage(1)">Asteroid</button>
+<button onclick="damage(20)">Planet</button>
+<button onclick="damage(50)">Black Hole</button>
+</div>
+<p id="healthdisp">Health: 100</p>
+<img id="planetimg" src="maps/earthmap1k.jpg" width="200">
+
+
+<script>
+let planethealth = 100;
+function damage(dmg) {
+planethealth -= dmg
+if (planethealth <= 0) {
+planethealth = 0;
+alert('You Killed The Planet!')
+}
+document.getElementById('healthdisp').innerText = "Health: " + planethealth;
+}
+function selectPlanet(normalImg) {
+document.getElementById('planetimg').src = normalImg;
+planethealth = 100;
+document.getElementById('healthdisp').innerText = "Health: " + planethealth;
+}
+</script>
+</body>
+</html>

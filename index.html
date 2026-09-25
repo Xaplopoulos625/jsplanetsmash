@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>JSPS</title>
+<style>
+h1 {color: white;}
+p {color: white; text-align: center;}
+h3 {color: white;}
+.gotobtn {color: white;}
+body {background-color: gray; display: flex; flex-direction: column; align-items: center; justify-content: center;}
+</style>
+</head>
+<body>
+<h1>JS Planet Smash</h1>
+<div class="planetchooser">
+<p>Pick a Planet</p>
+<button onclick="selectPlanet('maps/earthmap3u.jpg', 100)">Earth</button>
+<button onclick="selectPlanet('maps/moonmap2.jpg', 50)">Moon</button>
+<button onclick="selectPlanet('maps/marsmap5.jpg', 70)">Mars</button>
+<button onclick="selectPlanet('maps/mercurymap2.jpg', 70)">Mercury</button>
+<button onclick="selectPlanet('maps/venusmap2.jpg', 100)">Venus</button>
+<button onclick="selectPlanet('maps/jupitermap3.jpg', 200)">Jupiter</button>
+<button onclick="selectPlanet('maps/saturnmap2.jpg', 200)">Saturn</button>
+<br>
+<button onclick="selectPlanet('maps/uranusmap.jpg', 150)">Uranus</button>
+<button onclick="selectPlanet('maps/neptunemap2.jpg', 150)">Neptune</button>
+<button onclick="selectPlanet('maps/iomap.jpg', 50)">Io</button>
+<button onclick="selectPlanet('maps/europamap.jpg', 50)">Europa</button>
+<button onclick="selectPlanet('maps/ganymedemap.jpg', 70)">Ganymede</button>
+<button onclick="selectPlanet('maps/callistomap.jpg', 70)">Callisto</button>
+<br>
+<button onclick="selectPlanet('maps/plutomap.jpg', 50)">Pluto</button>
+<button onclick="selectPlanet('maps/titanmap2.png', 70)">Titan</button>
+<button onclick="selectPlanet('maps/charonmap.jpg', 50)">Charon</button>
+<button onclick="selectPlanet('maps/ceresmap.jpg', 50)">Ceres</button>
+<button onclick="selectPlanet('maps/rheamap.jpg', 50)">Rhea</button>
+<button onclick="selectPlanet('maps/iapetusmap.jpg', 50)">Iapetus</button>
+<button onclick="selectPlanet('maps/tethysmap.jpg', 50)">Tethys</button>
+<br>
+<button onclick="selectPlanet('maps/dionemap.jpg', 50)">Dione</button>
+<button onclick="selectPlanet('maps/enceladusmap.jpg', 30)">Enceladus</button>
+<button onclick="selectPlanet('maps/tritonmap.jpg', 50)">Triton</button>
+<button onclick="selectPlanet('maps/arielmap.jpg', 50)">Ariel</button>
+<button onclick="selectPlanet('maps/umbrielmap.jpg', 50)">Umbriel</button>
+<button onclick="selectPlanet('maps/titaniamap.jpg', 50)">Titania</button>
+<br>
+<button onclick="selectPlanet('maps/oberonmap.jpg', 50)">Oberon</button>
+<button onclick="selectPlanet('maps/mirandamap.jpg', 30)">Miranda</button>
+<button onclick="selectPlanet('maps/mimasmap.jpg', 30)">Mimas</button>
+<button onclick="selectPlanet('maps/phobosmap.jpg', 2)">Phobos</button>
+<button onclick="selectPlanet('maps/deimosmap.jpg', 2)">Deimos</button>
+<button onclick="selectPlanet('maps/vestamap.jpg', 30)">Vesta</button>
+<button onclick="selectPlanet('maps/sunmap2.jpg', 300)">Sun</button>
+
+
+</div>
+<div class="weaponchooser">
+<p>Pick A Weapon</p>
+<button onclick="damage(2)">Asteroid</button>
+<button onclick="damage(20)">Moon</button>
+<button onclick="damage(60)">Black Hole</button>
+<button onclick="damage(5)">Heat Laser</button>
+<button onclick="damage(5)">Freeze Laser</button>
+<br>
+<button onclick="damage(1)">Spaceship</button>
+<button onclick="damage(500)">Explode Star</button>
+<button onclick="damage(-5)">Heal Laser</button>
+</div>
+<p id="healthdisp">Health: 100</p>
+<img id="planetimg" src="maps/earthmap3u.jpg" width="300">
+<br>
+<button onclick="resetPlanet()">Reset</button>
+<br>
+<h3><a href="workshop.html" class="gotobtn">Workshop</a></h3>
+
+<script>
+let planethealth = 100;
+let UpdHealth = 100;
+let UpdPlanet = 'maps/earthmap3u.jpg';
+function damage(dmg) {
+planethealth -= dmg
+if (planethealth <= 0) {
+planethealth = 0;
+document.getElementById('planetimg').src = "maps/hotmap.jpg";
+}
+document.getElementById('healthdisp').innerText = "Health: " + planethealth;
+}
+function selectPlanet(ImgPlanet, HealthPlanet) {
+document.getElementById('planetimg').src = ImgPlanet;
+planethealth = HealthPlanet;
+UpdHealth = HealthPlanet;
+UpdPlanet = ImgPlanet;
+document.getElementById('healthdisp').innerText = "Health: " + planethealth;
+}
+function resetPlanet() {
+document.getElementById('planetimg').src = UpdPlanet;
+planethealth = UpdHealth
+document.getElementById('healthdisp').innerText = "Health: " + planethealth;
+}
+</script>
+</body>
+</html>
